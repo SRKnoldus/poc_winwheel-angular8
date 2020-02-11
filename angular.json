@@ -26,7 +26,11 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/gsap/src/minified/TimelineMax.min.js",
+              "node_modules/gsap/src/minified/TweenMax.min.js",
+              "node_modules/winwheel/dist/Winwheel.js"
+            ]
           },
           "configurations": {
             "production": {

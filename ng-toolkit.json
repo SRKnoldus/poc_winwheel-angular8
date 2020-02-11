@@ -1,0 +1,13 @@
+{
+  "serverless": {
+    "provider": "aws",
+    "project": "winwheeljs3",
+    "skipInstall": false,
+    "directory": ".",
+    "clientProject": "winwheeljs3",
+    "serverless": {
+      "aws": {},
+      "gcloud": {}
+    }
+  }
+}
