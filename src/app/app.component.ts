@@ -44,6 +44,7 @@ export class AppComponent implements OnInit, AfterViewInit {
           type: 'spinToStop',
           duration: 5,
           spins: 8,
+          callbackFinished: this.alertPrize.bind(this)
           // callbackFinished: () => {
           //   this.winningSegment = this.theWheel.getIndicatedSegment();
           //   console.log('---> ', this.winningSegment);
@@ -111,17 +112,11 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.wheelSpinning = false;
   }
 
-  // alertPrize(wheel) {
-  //   this.winningSegment = wheel.getIndicatedSegment();
-  //   console.log('You have won ' + this.winningSegment);
-  // }
-
   alertPrize() {
-    console.log('1-', this.theWheel.animation.callbackFinished);
-    console.log('2-', this.theWheel.getIndicatedSegment());
-    // this.winningSegment = this.theWheel.getIndicatedSegment();
-    // console.log('You have won ' + this.winningSegment);
-    // alert('You have won ' + indicatedSegment.text);
+    console.log('Callback finished -', this.theWheel.getIndicatedSegment());
+    this.winningSegment = this.theWheel.getIndicatedSegment().text;
+    console.log('You have won ' + this.winningSegment);
+    alert('You have won ' + this.theWheel.getIndicatedSegment().text);
   }
 
   getSegment(e) {
@@ -149,7 +144,6 @@ export class AppComponent implements OnInit, AfterViewInit {
     const stopAt = (91 + Math.floor((Math.random() * 43)));
     // const stopAt = (25 + Math.floor((Math.random() * 78)));
     console.log('Stop at angle must lie between 90 and 135 degrees - ', stopAt);
-    console.log('IndicatedSegment - ', this.theWheel.getIndicatedSegment());
     // Important thing is to set the stopAngle of the animation before stating the spin.
     this.theWheel.animation.stopAngle = stopAt;
     // May as well start the spin from here.
